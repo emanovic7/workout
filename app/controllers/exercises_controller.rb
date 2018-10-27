@@ -1,9 +1,13 @@
 class ExercisesController < ApplicationController
-
+  before_action :set_exercise, only: [:show]
 
   def index
     @exercises = Exercise.all
-    render 
+    render json: @exercises
+  end
+
+  def show
+    @exercise = Exercise.find(params[:id])
   end
 
   def new
@@ -15,6 +19,10 @@ class ExercisesController < ApplicationController
   private
 
     def exercise_params
-      params.require(:name).permit(:category, :equipment, :description, :muscle)
+      params.require(:name).permit(:category, :description, :muscle)
+    end
+
+    def set_exercise
+      @exercise = Exercise.find(params[:id])
     end
 end
