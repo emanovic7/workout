@@ -1,0 +1,17 @@
+<% if @exercise %>
+  <h2><%= @exercise.name %></h2><br>
+  <p><%= @exercise.description %></p><br>
+  <p><%= @exercise.category %></p>
+<% else %>
+  <%= "Couldn't Find Exercise. "%>
+<% end %>
+
+
+<p>
+  <%= link_to "Load Information", exercise_path(@exercise), :class => "load_info" %>
+</p>
+
+
+<div class="more-info">
+
+</div>

@@ -1,0 +1,15 @@
+<h1>Exercises</h1>
+
+<% @exercises.each do |exercise| %>
+  <h4><%= exercise.name %></h4>
+  <% end %>
+
+
+<p>
+  <%= link_to "load exercises", exercises_path(@exercises), :class => "load_exercises" %>
+</p>
+
+
+<div class="more-exercises">
+
+</div>
