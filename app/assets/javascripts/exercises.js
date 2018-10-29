@@ -8,8 +8,10 @@ $(function(){
     $.ajax({
       method: "GET",
       url: this.href,
-    }).done(function( response ) {
+    }).success(function( response ) {
         $("div.more-info").html(response)
+      }).error(function(checking){
+        alert("Request Error!")
       });
 
     e.preventDefault()
@@ -19,8 +21,10 @@ $(function(){
     $.ajax({
       method: "GET",
       url: "https://wger.de/api/v2/exercise/",
-    }).done(function(response){
-      $("div.more-exercises").html(response.results[1])
+    }).success(function(response){
+      $("div.more-exercises").html(response);
+    }).error(function(checking){
+      alert("Request Error!")
     });
 
     e.preventDefault()
