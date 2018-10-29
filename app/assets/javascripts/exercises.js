@@ -18,14 +18,19 @@ $(function(){
   })
 
   $("a.load_exercises").on('click', function(e){
-    $.ajax({
-      method: "GET",
-      url: "https://wger.de/api/v2/exercise/",
-    }).success(function(response){
-      $("div.more-exercises").html(response);
-    }).error(function(checking){
-      alert("Request Error!")
-    });
+    // $.ajax({
+    //   method: "GET",
+    //   url: "https://wger.de/api/v2/exercise/",
+    // }).success(function(response){
+    //   $("div.more-exercises").html(response);
+    // }).error(function(checking){
+    //   alert("Request Error!")
+    // });
+
+    $.get("https://wger.de/api/v2/exercise/").success(function(json){
+      //debugger
+      $("div.more-exercises").html("")
+    })
 
     e.preventDefault()
   })
